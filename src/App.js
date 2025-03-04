@@ -35,12 +35,9 @@ function App() {
 
   // Toggles a task status.
   const handleStatusChange = (id) => {
-    const updatedTasks = [...tasks];
-    updatedTasks.forEach((task) => {
-      if (task.id === id) {
-        task.done = !task.done;
-      }
-    });
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, done: !task.done } : task
+    );
     setTasks(updatedTasks);
   };
 
@@ -51,7 +48,7 @@ function App() {
   };
 
 // Function to add a new task
-const handleAddTask = (description, status) => {
+const handleAddTask = ({description, status}) => {
   const newTask = {
     id: uuid(),
     description,

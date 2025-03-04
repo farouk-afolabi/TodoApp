@@ -1,20 +1,16 @@
 
 import Task from "./Task/Task";
 
-
-
-
 function Tasks({tasks, onStatusChange, onTaskRemove,onClearTasks}) {
- 
 
 
   return (
     <>
       <h2> These are the tasks:</h2>
       {/* Renders each task. */}
-      {tasks.map((task, index) => (
+      {tasks.map((task) => (
         <Task
-         key={index} 
+         key={task.id} 
          task={task} 
          onStatusChange={onStatusChange}
          onTaskRemove={onTaskRemove}

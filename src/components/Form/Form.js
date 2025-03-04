@@ -1,29 +1,33 @@
 import { useState } from "react";
 
-function Form (){
+function Form ({ onAddTask }){
     const[inputValue, setInputValue] = useState("");
     const[option, setOption] = useState("open");
     const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         if (inputValue.trim() === ""){
             setError("Enter a description");
-
-        } else {
-            setError('');
+            return;
         }
+
+       // Call onAddTask to pass the task data to the parent component
+       onAddTask({ description: inputValue, status: option });
+
         
         
 
         setInputValue("");
         setOption("open");
+        setError("");  
     }
 return (
     <form onSubmit={handleSubmit}>
         <h2>Add a new task </h2>
       
-        {error !== '' && (<div> {error}</div>)}
+        {error && <p style={{ color: "red" }}>{error}</p>}
        
        
         <label htmlFor="inputValue">Description: 
