@@ -1,4 +1,6 @@
 import { useState } from "react";
+import '../Form/Form.scss';
+import { IoMdAddCircle } from "react-icons/io";
 
 function Form ({ onAddTask }){
     const[inputValue, setInputValue] = useState("");
@@ -15,9 +17,6 @@ function Form ({ onAddTask }){
 
        // Call onAddTask to pass the task data to the parent component
        onAddTask({ description: inputValue, status: option });
-
-        
-        
 
         setInputValue("");
         setOption("open");
@@ -56,7 +55,7 @@ return (
         </select>
         </label>
         
-        <button type="submit" id="add">Add</button>
+        <button type="submit" id="add"> <IoMdAddCircle className="icon"/> Add</button>
         
     </form>
 )
