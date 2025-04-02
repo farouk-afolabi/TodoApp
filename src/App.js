@@ -3,6 +3,13 @@ import uuid from "react-uuid";
 import Header from "./components/Header/Header.js";
 import Tasks from "./components/Tasks/Tasks";
 import Form from "./components/Form/Form.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NotFound from "./components/NotFound.js";
+import Help from "./components/Help.js";
+import HelpOverview from "./components/HelpOverview.js";
+import AddHelp from "./components/AddHelp.js";
+import RemoveHelp from "./components/RemoveHelp.js";
+import ChangeHelp from "./components/ChangeHelp.js";
 
 
 
@@ -58,18 +65,39 @@ const handleAddTask = ({description, status}) => {
 };
   
   return (
+
+    <BrowserRouter> 
     <>
-    
     <Header/>
-    <Tasks tasks={tasks}
+    <Routes> 
+  
+     <Route path='/' element={<Tasks tasks={tasks}
     onStatusChange={handleStatusChange}
     onTaskRemove={handleTaskRemove}
-    onClearTasks={handleClearTasks}/>
+    onClearTasks={handleClearTasks}/> } />
+     <Route path="/add" element={ <Form onAddTask ={handleAddTask}/> } />
+     <Route path="/help" element={ <Help /> }> 
+     <Route path="" element={ <HelpOverview />} />
+ <Route path="add" element={<AddHelp /> } />
+ <Route path="remove" element={<RemoveHelp /> } />
+ <Route path="change" element={ <ChangeHelp />} />
+     
+     </Route>
+     <Route path="*" element={<NotFound/> } />
 
-    <Form onAddTask ={handleAddTask}/>
+ 
+
+
+
+    </Routes>
+    
+    
+
+    
     
 
     </>
+    </BrowserRouter>
   );
 }
 
