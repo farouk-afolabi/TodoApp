@@ -14,9 +14,15 @@ https://farouk-afolabi.github.io/TodoApp
 ✅ Routing - Multi-page navigation with React Router
 
 🛠️ Tech Stack
+
 Frontend: React 19
+
 Styling: Sass
+
 Database: Firebase (Firestore)
+
 State Management: React Context API
+
 Build Tool: Create React App
+
 Deployment: GitHub Pages
