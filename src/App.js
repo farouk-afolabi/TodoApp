@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header/Header.js";
 import Tasks from "./components/Tasks/Tasks";
 import Form from "./components/Form/Form.js";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import NotFound from "./components/NotFound.js";
 import Help from "./components/Help.js";
 import HelpOverview from "./components/HelpOverview.js";
@@ -92,7 +92,7 @@ export default function App() {
   };
 
   return (
-    <BrowserRouter>
+    <Router>
       <>
         <Header />
         {error && (
@@ -135,6 +135,6 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </>
-    </BrowserRouter>
+    </Router>
   );
 }
