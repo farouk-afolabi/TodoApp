@@ -1,11 +1,16 @@
 📝 Todo App with React & Firebase
+
 🚀 Live Demo
 https://farouk-afolabi.github.io/TodoApp
 
 🔥 Features
+
 ✅ CRUD Operations - Create, Read, Update, Delete todos
+
 ✅ Firebase Backend - Real-time database with user authentication
+
 ✅ Responsive Design - Works on mobile, tablet & desktop
+
 ✅ Routing - Multi-page navigation with React Router
 
 🛠️ Tech Stack
